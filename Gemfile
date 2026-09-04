@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "base64", "~> 0.3"
 gem "dotenv", "~> 3.1"
 gem "passkit-ruby-grpc-sdk", "1.1.162"
 

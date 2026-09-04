@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
+    base64 (0.3.0)
     bigdecimal (4.1.2)
     dotenv (3.2.0)
     google-protobuf (4.36.1)
@@ -73,6 +74,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  base64 (~> 0.3)
   dotenv (~> 3.1)
   minitest (~> 5.25)
   passkit-ruby-grpc-sdk (= 1.1.162)
