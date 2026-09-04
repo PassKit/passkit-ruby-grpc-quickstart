@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "passkit"
+
+WORKFLOWS = %w[membership coupons event-tickets flights operations].freeze
+workflow = ARGV.first
+unless WORKFLOWS.include?(workflow)
+  warn "Usage: bundle exec ruby bin/quickstart <#{WORKFLOWS.join('|')}>"
+  exit(workflow.nil? || %w[help --help -h].include?(workflow) ? 0 : 1)
+end
+
+if workflow == "operations"
+  PassKit::Client::SERVICES.each do |name, stub|
+    methods = stub.instance_methods(false).reject { |method| method.to_s.end_with?("_deprecated") }.sort
+    puts "#{name} (#{methods.length}): #{methods.join(', ')}"
+  end
+  exit
+end
+
+config = PassKit::Config.load
+config.validate!(workflow: workflow)
+pool = PassKit::ConnectionPool.new(config)
+
+pool.with do |client|
+  klass = {
+    "membership" => PassKit::MembershipWorkflow,
+    "coupons" => PassKit::CouponWorkflow,
+    "event-tickets" => PassKit::EventTicketsWorkflow,
+    "flights" => PassKit::FlightsWorkflow
+  }.fetch(workflow)
+  klass.new(client, config).run
+end

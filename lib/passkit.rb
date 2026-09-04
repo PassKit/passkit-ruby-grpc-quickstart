@@ -1,0 +1,7 @@
+require_relative "passkit/config"
+require_relative "passkit/connection_pool"
+require_relative "passkit/workflow"
+require_relative "passkit/workflows/membership"
+require_relative "passkit/workflows/coupons"
+require_relative "passkit/workflows/event_tickets"
+require_relative "passkit/workflows/flights"
