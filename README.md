@@ -1,4 +1,6 @@
 # PassKit Ruby gRPC quickstart
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Ruby](https://img.shields.io/badge/Ruby-3.2%2B-CC342D?logo=ruby)
 
 Connect a Ruby application to PassKit and access the Membership, Coupon, Event
 Ticket, and Flight APIs through reusable pooled clients. The project uses the
