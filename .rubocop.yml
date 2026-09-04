@@ -1,0 +1,22 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  SuggestExtensions: false
+  Exclude:
+    - "vendor/**/*"
+    - "Gemfile"
+    - "Rakefile"
+    - "bin/quickstart"
+  StyleGuideBaseURL: https://rubystyle.guide
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Layout/LineLength:
+  Max: 170
+Metrics/MethodLength:
+  Max: 70
+Metrics/AbcSize:
+  Max: 70

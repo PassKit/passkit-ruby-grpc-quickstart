@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.bundle/
+coverage/
+tmp/
+vendor/bundle/
+.DS_Store
+.idea/
+.vscode/
+certs/*
+*.pem
+*.key
+*.p12
+*.pfx
+
